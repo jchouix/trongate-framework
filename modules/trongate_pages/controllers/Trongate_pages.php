@@ -1129,7 +1129,7 @@ class Trongate_pages extends Trongate {
      * @return int The limit for the number of records per page.
      */
     private function get_limit(): int {
-        if (isset($_SESSION['selected_per_page'])) {
+        if (isset($_SESSION['selected_per_page']) && isset($this->per_page_options[$_SESSION['selected_per_page']])) {
             $limit = $this->per_page_options[$_SESSION['selected_per_page']];
         } else {
             $limit = $this->default_limit;
@@ -1337,7 +1337,11 @@ class Trongate_pages extends Trongate {
      * @return int The number of records selected per page.
      */
     private function get_selected_per_page(): int {
-        $selected_per_page = (isset($_SESSION['selected_per_page'])) ? $_SESSION['selected_per_page'] : 1;
+        if (isset($_SESSION['selected_per_page']) && isset($this->per_page_options[$_SESSION['selected_per_page']])) {
+            $selected_per_page = $_SESSION['selected_per_page'];
+        } else {
+            $selected_per_page = 1;
+        }
         return $selected_per_page;
     }
 
