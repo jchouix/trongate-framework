@@ -1356,10 +1356,10 @@ class Trongate_pages extends Trongate {
         $this->module('trongate_security');
         $this->trongate_security->_make_sure_allowed();
         
-        settype($selected_index, 'integer'); // Debug
+        settype($selected_index, 'integer');
  
         if (!isset($this->per_page_options[$selected_index])) {
-            $selected_index = 1; // Debug
+            $selected_index = 1;
         }
         
         $_SESSION['selected_per_page'] = $selected_index;
