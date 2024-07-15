@@ -320,7 +320,7 @@ function populateTargetEl(targetEl, http, element) {
         console.error('Error in populateTargetEl:', error);
     } finally {
         // Clean up
-        tempDiv.innerHTML = '';
+      //  tempDiv.innerHTML = '';
         tempFragment.textContent = '';
     }
 }
