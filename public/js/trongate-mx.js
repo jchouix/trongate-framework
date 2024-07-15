@@ -301,10 +301,11 @@ function populateTargetEl(targetEl, http, element) {
 
     // Create a document fragment to hold the response
     const tempFragment = document.createDocumentFragment();
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = http.responseText;
-
-    tempFragment.appendChild(tempDiv);
+  //  const tempDiv = document.createElement('div');
+  //  tempDiv.innerHTML = http.responseText
+  //  tempFragment.appendChild(tempDiv);
+    const tempDOM = new DOMParser().parseFromString(http.responseText, "text/xml");
+    tempFragment.appendChild(tempDOM.firstChild);
 
     try {
         // Handle out-of-band swaps first
