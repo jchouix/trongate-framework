@@ -115,8 +115,9 @@ function loadMoreRecords() {
             const newRows = (containerType === 'table') ? foundPaginationContainer.querySelectorAll('tbody tr') : foundPaginationContainer.children;
 
             // Append the new rows to the paginationRowsContainer
+            const paginationRowsContainer = paginationContainer.querySelector('tbody');
             newRows.forEach(row => {
-                paginationContainer.appendChild(row);
+                paginationRowsContainer.appendChild(row);
             });
 
             // Swap the pagination on the existing page.
